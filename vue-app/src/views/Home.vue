@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="homepage">
+    <VideoBox v-for="video in videos" :key="video.id" :video="video"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import VideoBox from "../components/VideoBox";
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+  name: "Home",
+  components: {VideoBox},
+  computed: {
+    videos() {
+      return this.$store.getters.getVideos;
+    }
+  },
 }
 </script>
+
+<style scoped>
+div.homepage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+</style>
