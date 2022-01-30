@@ -1,2 +1,4 @@
 vue-app/.gitignore
 acceptance/.gitignore
+.DS_Store
+.idea
